@@ -5,7 +5,9 @@ build_dir=${1:-}
 npmrc="$(cat $ENV_DIR/NPMRC)"
 
 if [ "$npmrc" != "" ]; then
-	echo "-----> Using .npmrc from config var NPMRC"
-	echo "$npmrc" > "$build_dir/.npmrc"
+	echo "-----> Using .npmrc"
+	echo "@mindfulchefuk:registry=https://npm.pkg.github.com/mindfulchefuk" > "$build_dir/.npmrc"
+	echo "//npm.pkg.github.com/:_authToken=$API_CLIENT_GITHUB_AUTH_TOKEN" > "$build_dir/.npmrc"
+	echo "//npm.pkg.github.com/mindfulchefuk/:_authToken=$API_CLIENT_GITHUB_AUTH_TOKEN" > "$build_dir/.npmrc"
 	exit 0
 fi
