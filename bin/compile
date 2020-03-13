@@ -9,5 +9,8 @@ if [ "$npmrc" != "" ]; then
 	echo "@mindfulchefuk:registry=https://npm.pkg.github.com/mindfulchefuk" > "$build_dir/.npmrc"
 	echo "//npm.pkg.github.com/:_authToken=$API_CLIENT_GITHUB_AUTH_TOKEN" > "$build_dir/.npmrc"
 	echo "//npm.pkg.github.com/mindfulchefuk/:_authToken=$API_CLIENT_GITHUB_AUTH_TOKEN" > "$build_dir/.npmrc"
+
+	cat "$build_dir/.npmrc"
+	ls -l $build_dir
 	exit 0
 fi
